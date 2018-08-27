@@ -3,7 +3,7 @@ class Book < ApplicationRecord
 
   before_validation :set_title
 
-private
+  private
 
   def set_title
     unless title.present?
