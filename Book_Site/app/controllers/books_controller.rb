@@ -1,6 +1,4 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
-
   def index
     @books = Book.all
   end
@@ -14,7 +12,19 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:id])    
+    @book = Book.find(params[:id])  
+  end
+
+  def update
+    @book = Book.find(params[:id])  
+
+    respond_to do |format|
+      if @book.update(book_params)
+        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   def create
@@ -25,16 +35,6 @@ class BooksController < ApplicationController
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
       else
         format.html { render :new }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
-      else
-        format.html { render :edit }
       end
     end
   end
@@ -53,6 +53,6 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.fetch(:book, {})
+      params.require(:book).permit(:title, :author, :genre)
     end
 end

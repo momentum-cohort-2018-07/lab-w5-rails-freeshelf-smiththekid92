@@ -1,13 +1,13 @@
 class Book < ApplicationRecord
   validates :title, presence: true
 
-  before_validation :set_title
+  # before_validation :set_title
 
-  private
+  # private
 
-  def set_title
-    unless title.present?
-      self.title = "Untitled"
-    end
-  end
+  # def set_title
+  #   unless title.present?
+  #     self.title = "Untitled"
+  #   end
+  # end
 end
