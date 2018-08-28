@@ -3,6 +3,8 @@ class Book < ApplicationRecord
 
   before_validation :set_title
 
+  belongs_to :user
+
   private
 
   def set_title
