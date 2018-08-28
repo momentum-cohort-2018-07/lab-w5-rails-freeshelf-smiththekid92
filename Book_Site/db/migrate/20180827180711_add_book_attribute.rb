@@ -5,6 +5,5 @@ class AddBookAttribute < ActiveRecord::Migration[5.2]
     add_column :books, :description, :text
     add_column :books, :publisher, :string
     add_column :books, :genre, :string
-    add_column :books, :url, :string
   end
 end

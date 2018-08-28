@@ -8,6 +8,13 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+300.times do
+  User.create(
+
+  )
+end
+
 300.times do
   Book.create(
     title: Faker::Book.title, 
@@ -15,7 +22,8 @@ require 'faker'
     description: Faker::Code.isbn,
     publisher: Faker::Book.publisher, 
     genre: Faker::Book.genre,
-    url: Faker::Internet.url
+    url: Faker::Internet.url,
+    user_id: 1 + rand(300)
   )
 end
 

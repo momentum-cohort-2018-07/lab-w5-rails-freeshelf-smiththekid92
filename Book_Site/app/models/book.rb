@@ -1,7 +1,7 @@
 class Book < ApplicationRecord
   validates :title, presence: true
-
-  before_validation :set_title
+  validates :author, presence: true
+  validates :genre, presence: true
 
   belongs_to :user
 
