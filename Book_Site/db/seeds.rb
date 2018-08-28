@@ -11,7 +11,7 @@ require 'faker'
 
 300.times do
   User.create(
-
+  username: Faker::Internet.username
   )
 end
 
@@ -23,7 +23,7 @@ end
     publisher: Faker::Book.publisher, 
     genre: Faker::Book.genre,
     url: Faker::Internet.url,
-    user_id: 1 + rand(300)
+    user_id: 1 + rand(300),
   )
 end
 
