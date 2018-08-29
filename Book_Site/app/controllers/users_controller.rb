@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # validates :user_id, presence: true
   def index
     @user = User.all
   end
@@ -49,7 +48,12 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
-    params.require(:username) .permit(:username)
+    params.require(:user).permit(:username)
   end
 end
