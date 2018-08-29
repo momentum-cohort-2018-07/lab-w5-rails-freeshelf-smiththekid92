@@ -1,12 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%= form_with(model: @user, local: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-<h1>Create a New User</h1>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
+  <p>
+    <%= form.label :user %><br>
+    <%= form.text_field :username %>
+  </p>
 
-<%= render 'form', user: @user %>
+  <p>
+    <%= form.label :password %><br>
+    <%= form.text_field :password %>
+  </p>
 
-<%= link_to 'User List', users_path %> |
-<%= link_to 'Back', books_path %>
-
-
-
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
