@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'books/index'
 
+  resource :session, only: [:new, :create, :destroy]
+
   resources :books, :users
 
   root 'welcome#index'
