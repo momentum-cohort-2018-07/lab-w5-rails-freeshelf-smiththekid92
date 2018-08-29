@@ -10,9 +10,10 @@ require 'faker'
 
 
 300.times do
-  User.create(
-  username: Faker::Internet.username
-  )
+  user = User.new
+  user.username = Faker::Internet.username
+  user.password = Faker::Internet.password(8, 20, true)
+  user.save
 end
 
 300.times do
