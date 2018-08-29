@@ -7,9 +7,5 @@ class Book < ApplicationRecord
 
   private
 
-  def set_title
-    unless title.present?
-      self.title = "Untitled"
-    end
-  end
+
 end
